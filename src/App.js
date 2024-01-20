@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Admin from "./components/Admin";
+import Menu from "./components/Menu";
+import Order from "./components/Order";
+import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  function addProduct(newProduct) {
+    let data = JSON.parse(localStorage.getItem("menu")) || [];
+    data.push(newProduct);
+    localStorage.setItem("menu", JSON.stringify(data));
+  }
+
+  function readProduct() {
+    let data = JSON.parse(localStorage.getItem("menu")) || [];
+    setData(data);
+  }
+
+  function deleteProduct(id) {
+    let data = JSON.parse(localStorage.getItem("menu")) || [];
+    let deleteData = data.filter((el) => el.id !== id);
+    localStorage.setItem("menu", JSON.stringify(deleteData));
+    readProduct();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/admin" element={<Admin addProduct={addProduct} />} />
+        <Route
+          path="/menu"
+          element={
+            <Menu
+              deleteProduct={deleteProduct}
+              readProduct={readProduct}
+              data={data}
+            />
+          }
+        />
+
+        <Route path="/orders" element={<Order />} />
+      </Routes>
     </div>
   );
 }

@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 90%;
+  /* height: 800px; */
+  background: #95b9c9;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+#header {
+  width: 1480px;
+  height: 85px;
+  flex-shrink: 0;
+  background: #fff;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 420px;
+  margin: 25px 0;
+}
+.hero_text a {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* ? */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.create {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 8% 0 0 25%;
+  gap: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.create h2 {
+  padding: 28px 0;
+  color: #33332d;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 3.2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.create input {
+  width: 500px;
+  height: 45px;
+  border-radius: 10px;
+  background: #d9d9d9;
+  border: none;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+.create button {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background: #ddaa27;
+  border: none;
+  font-size: 20px;
+}
+
+/* ? */
+
+.menu {
+  /* margin: 120px 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  width: 1344px;
+  height: 689px;
+}
+.card {
+  width: 220px;
+  height: 340px;
+  background-color: #8ecde875;
+  margin: 60px 90px;
+  border-radius: 12px;
+  padding: 20px 18px;
+}
+
+.card img {
+  width: 170px;
+  border-radius: 18px;
+  margin-left: 16px;
+}
+
+.card_text p {
+  font-size: 18px;
+  margin: 22px 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.card_text {
+  display: flex;
+}
+
+.card_action {
+  display: flex;
+  justify-content: space-between;
+}
+.card_action button {
+  background-color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 96px;
+  height: 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }
